@@ -1,0 +1,30 @@
+# Rock, Paper, Scissors game.
+
+import random
+
+user_action = input("wähle.. schere, stein oder papier ")
+possible_actions = ["stein","papier","schere"]
+computer_action = random.choice(possible_actions)
+print(user_action, computer_action)
+
+if user_action == computer_action:
+    print("Es ist ein unentschieden!")
+elif user_action == "stein":
+    if computer_action == "papier":
+        print("Du hast verloren!")
+    else:
+        print("Du hast gewonnen!")
+    if user_action == computer_action:
+        print("Es ist ein unentschieden")
+elif user_action == "papier":
+    if computer_action == "schere":
+        print("Du hast verloren")
+    else:
+        print("Du hast gewonnen!")
+    if user_action == computer_action:
+        print("Es ist ein unentschieden")
+elif user_action == "schere":
+    if  computer_action == "stein":
+        print("Du hast verloren")
+    else:
+        print("Du hast gewonnen!")
