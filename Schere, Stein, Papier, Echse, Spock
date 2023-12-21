@@ -1,0 +1,50 @@
+# Schere, Stein, Papier, Echse, Spock
+
+import random
+
+
+user_action = input("wähle... schere, stein, papier, echse oder spock ").lower()
+possible_actions = ["stein","papier","schere", "echse", "spock"]
+computer_action = random.choice(possible_actions)
+print("Du wählst: "+ user_action.upper()+" ","\nDer Computer wählt: "+computer_action.upper())
+
+
+if user_action == computer_action:
+    print("Das ist ein unentschieden!")
+elif user_action == "schere":
+    if computer_action in ["stein","spock"]:
+        print("Du hast verloren!")
+    else:
+         print("Du hast gewonnen!")
+
+    if user_action == computer_action:
+         print("Das ist ein unentschieden!")
+elif user_action == "papier":
+    if computer_action in ["schere","echse"]:
+         print("Du hast verloren!")
+    else:
+         print("Du hast gewonnen!")
+
+    if user_action == computer_action:
+         print("Das ist ein unentschieden!")
+elif user_action == "stein":
+    if computer_action in ["papier", "spock"]:
+         print("Du hast verloren!")
+    else:
+        print("Du hast gewonnen!")
+
+    if user_action == computer_action:
+        print("Das ist ein unentschieden!")
+elif user_action == "echse":
+    if computer_action in ["stein", "schere"]:
+         print("Du hast verloren!")
+    else:
+        print("Du hast gewonnen!")
+
+    if user_action == computer_action:
+         print("Das ist ein unentschieden!")
+elif user_action == "spock":
+    if computer_action in ["echse","papier"]:
+         print("Du hast verloren!")
+    else:
+         print("Du hast gewonnen!")
