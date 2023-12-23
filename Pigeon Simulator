@@ -67,8 +67,8 @@ main_big_boi_rect = main_big_boi.get_rect(center = (130,200))
 player_gravity = -0
 
 #Timer
-#obstacle_timer = pygame.USEREVENT + 1
-#pygame.time.set_timer(obstacle_timer,900)
+obstacle_timer = pygame.USEREVENT + 1
+pygame.time.set_timer(obstacle_timer,900)
 
 # wird benutzt um es durchgehend offen zu haben
 # Die while True loop updated das game konstant
@@ -83,10 +83,10 @@ while True:
                 if main_char_rect.bottom >= 340:
                     player_gravity = -20
 
-        else:
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_w:
-                    game_active == True
+            if event.key == pygame.K_w:  # Prüfe den Tastendruck auf "W" außerhalb der vorherigen Bedingung
+                if not game_active:  # Wenn das Spiel nicht aktiv ist, starte es neu
+                    game_active = True
+                    enemy_rect.left = 800
                     start_time = int(pygame.time.get_ticks() / 100)
 
         #if game_active == False:
@@ -97,7 +97,7 @@ while True:
 
 # Obstacle Ti
         #if event.type == obstacle_timer:
-            #print("test")
+
 
 
 #   Screen.blit() wird verwendet um eingefügte Bilder in das Programm zu importieren nach dem einfügen von
@@ -113,11 +113,13 @@ while True:
         screen.blit(enemy_flipped,enemy_rect)
         enemy_rect.x -= 5
         if enemy_rect.right <= 0: enemy_rect.left = 800
+
     #PLAYER
         player_gravity += 1
         main_char_rect.y += player_gravity
         if main_char_rect.bottom >= 340: main_char_rect.bottom = 340
         screen.blit(main_char,main_char_rect)
+
     #COLLISION
         if main_char_rect.colliderect(enemy_rect):
             game_active = False
@@ -127,17 +129,11 @@ while True:
             screen.blit(main_big_boi, main_big_boi_rect)
             screen.blit(game_over_surface, game_over_rect)
             screen.blit(restart_surface,restart_rect)
-                #score_message = test_font.render(f'Deine Punktzahl: {score}',False,"Black")
-                #score_message_rect = score_message.get_rect(center = (400,330))
+            score_message = test_font.render(f'Deine Punktzahl: {score}',False,"Black")
+            score_message_rect = score_message.get_rect(center = (400,330))# nochmal gucken
+            #score == 0: screen.blit(restart_surface, restart_rect)
 
-
-# nochmal gucken
-                #score == 0: screen.blit(restart_surface, restart_rect)
-
-                #screen.blit(score_message,score_message_rect)
-
-
-
+            screen.blit(score_message,score_message_rect)
 
         # screen.blit wurde auf main_char gesetzt und mit .char.rect
         # kann man zeitgleich die x,y kordinaten mit geben
