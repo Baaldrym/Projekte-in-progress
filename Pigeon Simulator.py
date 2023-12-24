@@ -1,3 +1,4 @@
+# MEIN PIGEON SIMULATOR IST EIN FUNKTIONSTÜCHTIGES SPIEL ES BENÖTIGT JEDOCH DIE ASSETS/DATEIEN AUS DEN "AUDIO" UND "GRAPHICS" ORDNERN WIE IN LINE 18 LESBAR IST. EINFACH MIT RUNTERLADEN UND ZUSAMMEN NUTZEN ZUM SPIELEN. 
 import random
 
 import pygame
@@ -14,7 +15,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(midbottom=(50, 290))
         self.gravity = 0
 
-        #self.background_music = pygame.mixer.Sound("C:\\Users\\Cem\\Desktop\\PyGame assets\\graphics\\audio\\Pigeon Simulator.mp3")
+        #self.background_music = pygame.mixer.Sound("graphics\\audio\\Pigeon Simulator.mp3")
         #self.jump_sound = pygame.mixer.Sound("PyGame assets\\audio\\Jump.mp3")
         #self.jump_sound.set_volume(0.1)
         #if game_active = False: self.gravity = 0
@@ -123,7 +124,7 @@ b_music = bg_music.play(loops = -1)
 
 if game_active: b_music
 
-# self.background_music = pygame.mixer.Sound("C:\\Users\\Cem\\Desktop\\PyGame assets\\graphics\\audio\\Pigeon Simulator.mp3")
+# self.background_music = pygame.mixer.Sound("graphics\\audio\\Pigeon Simulator.mp3")
 
 player = pygame.sprite.GroupSingle()
 player.add(Player())
